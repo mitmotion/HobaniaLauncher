@@ -50,3 +50,4 @@ openssl-sys = { version = "*", features = ["vendored"], optional = true }
 [build-dependencies]
 # required to work around diesel being incompatible with resolver = "2"
 diesel = { version = "1.4.7", features = ["chrono", "sqlite"] }
+libsqlite3-sys = { version = "*", features = ["bundled"] }
