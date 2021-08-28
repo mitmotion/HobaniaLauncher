@@ -121,6 +121,12 @@ impl Profile {
         self.directory().join(consts::VOXYGEN_FILE)
     }
 
+    /// Returns path to the voxygen logs directory
+    /// e.g. <base>/profiles/default/logs
+    pub fn voxygen_logs_path(&self) -> PathBuf {
+        self.directory().join(consts::LOGS_DIR)
+    }
+
     /// Returns the download url for this profile
     pub fn url(&self) -> String {
         format!(
