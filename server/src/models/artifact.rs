@@ -104,6 +104,8 @@ impl Artifact {
             Some("linux-aarch64".into())
         } else if name.contains("linux") {
             Some("linux".into())
+        } else if name.contains("macos-aarch64") {
+            Some("macos-aarch64".into())
         } else if name.contains("macos") {
             Some("macos".into())
         } else {

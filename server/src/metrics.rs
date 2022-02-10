@@ -9,6 +9,7 @@ pub struct Metrics {
     downloads_linux: IntCounter,
     downloads_linux_aarch64: IntCounter,
     downloads_macos: IntCounter,
+    downloads_macos_aarch64: IntCounter,
     pub uploads: IntCounter,
 
     http_routes_in: IntCounterVec,
@@ -28,7 +29,13 @@ impl Metrics {
         )?;
         let downloads_macos = IntCounter::new(
             "macos_downloads",
-            "shows the number of requests which want to download Veloren for MacOS",
+            "shows the number of requests which want to download Veloren for MacOS \
+             (x86_64)",
+        )?;
+        let downloads_macos_aarch64 = IntCounter::new(
+            "macos_aarch64_downloads",
+            "shows the number of requests which want to download Veloren for MacOS \
+             (aarch64)",
         )?;
         let downloads_linux_aarch64 = IntCounter::new(
             "linux_aarch64_downloads",
@@ -51,6 +58,7 @@ impl Metrics {
         registry.register(Box::new(downloads_linux.clone()))?;
         registry.register(Box::new(downloads_linux_aarch64.clone()))?;
         registry.register(Box::new(downloads_macos.clone()))?;
+        registry.register(Box::new(downloads_macos_aarch64.clone()))?;
         registry.register(Box::new(uploads.clone()))?;
         registry.register(Box::new(http_routes_in.clone()))?;
 
@@ -61,6 +69,7 @@ impl Metrics {
             downloads_linux,
             downloads_linux_aarch64,
             downloads_macos,
+            downloads_macos_aarch64,
             uploads,
 
             http_routes_in,
@@ -76,6 +85,7 @@ impl Metrics {
             "linux" => self.downloads_linux.inc(),
             "linux-aarch64" => self.downloads_linux_aarch64.inc(),
             "macos" => self.downloads_macos.inc(),
+            "macos-aarch64" => self.downloads_macos_aarch64.inc(),
             _ => {},
         }
     }

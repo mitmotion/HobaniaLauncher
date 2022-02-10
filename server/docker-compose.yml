@@ -11,7 +11,7 @@ services:
       - AIRSHIPPER_GITLAB_SECRET=<secret>
       - AIRSHIPPER_ARTIFACT_STAGE=build
       - AIRSHIPPER_TARGET_BRANCH=master
-      - AIRSHIPPER_TARGET_EXECUTABLES=linux,windows,macos,linux-aarch64
+      - AIRSHIPPER_TARGET_EXECUTABLES=air-linux,air-windows,air-macos,air-macos-aarch64,air-linux-aarch64
       - RUST_LOG=info,server=debug
       - ROCKET_ENV=production
     ports:

@@ -94,7 +94,9 @@ impl Server {
 
     pub fn osdir(&self) -> String {
         match (std::env::consts::OS, std::env::consts::ARCH) {
-            os_arch @ ("linux", "aarch64") => format!("{}-{}", os_arch.0, os_arch.1),
+            os_arch @ ("linux", "aarch64") | os_arch @ ("macos", "aarch64") => {
+                format!("{}-{}", os_arch.0, os_arch.1)
+            },
             (os, _) => os.to_string(),
         }
     }
