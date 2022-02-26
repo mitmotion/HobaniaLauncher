@@ -41,7 +41,7 @@ bundled = ["openssl-sys"]
 [dependencies]
 # Cli
 # TODO: Switch to full 3.0.0 release once released
-clap = { version = "3.0.0-beta.2", features = ["derive"] } 
+clap = { version = "3.0.0-beta.2", features = ["derive", "cargo"] } 
 indicatif = "0.16"
 # UI
 iced = { git = "https://github.com/hecrj/iced.git", rev = "2d65621a3b680457e689b93c800e74f726ffc175", default-features = false, features = ["wgpu", "tokio", "image"] }
