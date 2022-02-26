@@ -147,11 +147,7 @@ impl Application for Airshipper {
         }
     }
 
-    fn update(
-        &mut self,
-        message: Message,
-        _clipboard: &mut iced::Clipboard,
-    ) -> Command<Message> {
+    fn update(&mut self, message: Message) -> Command<Message> {
         match message {
             Message::Loaded(state) => {
                 *self = state;

@@ -11,9 +11,9 @@ use crate::{
     ProcessUpdate,
 };
 use iced::{
-    button, image::Handle, pick_list, text_input, tooltip::Position, Align, Button,
-    Column, Command, Container, Element, HorizontalAlignment, Image, Length, PickList,
-    ProgressBar, Row, Text, TextInput, Tooltip, VerticalAlignment,
+    alignment, button, image::Handle, pick_list, text_input, tooltip::Position,
+    Alignment, Button, Column, Command, Container, Element, Image, Length, PickList,
+    ProgressBar, Row, Text, TextInput, Tooltip,
 };
 use std::path::PathBuf;
 
@@ -142,7 +142,7 @@ impl DefaultView {
         let icons = Row::new()
             .width(Length::Fill)
             .height(Length::Units(90))
-            .align_items(Align::Center)
+            .align_items(Alignment::Center)
             .spacing(10)
             .padding(15)
             .push(logo);
@@ -221,12 +221,12 @@ impl DefaultView {
             let settings = Container::new(
                 Column::new()
                     .padding(2)
-                    .align_items(Align::End)
+                    .align_items(Alignment::End)
                     .push(
                         Row::new()
                             .padding(5)
                             .spacing(10)
-                            .align_items(Align::Center)
+                            .align_items(Alignment::Center)
                             .push(wgpu_backend_picker)
                             .push(server_picker),
                     )
@@ -234,7 +234,7 @@ impl DefaultView {
                         Row::new()
                             .padding(5)
                             .spacing(10)
-                            .align_items(Align::Center)
+                            .align_items(Alignment::Center)
                             .push(log_level_picker)
                             .push(open_logs_button),
                     )
@@ -332,7 +332,7 @@ impl DefaultView {
 
         let bottom = Container::new(
             Row::new()
-                .align_items(Align::End)
+                .align_items(Alignment::End)
                 .spacing(10)
                 .padding(10)
                 .push(download)
@@ -653,8 +653,8 @@ pub fn primary_button(
             .font(HAXRCORP_4089_FONT)
             .size(HAXRCORP_4089_FONT_SIZE_3)
             .height(Length::Fill)
-            .horizontal_alignment(HorizontalAlignment::Center)
-            .vertical_alignment(VerticalAlignment::Center),
+            .horizontal_alignment(alignment::Horizontal::Center)
+            .vertical_alignment(alignment::Vertical::Center),
     )
     .on_press(interaction)
     .width(Length::FillPortion(1))
@@ -707,8 +707,8 @@ pub fn secondary_button_with_width(
         state,
         Text::new(label)
             .size(16)
-            .horizontal_alignment(HorizontalAlignment::Center)
-            .vertical_alignment(VerticalAlignment::Center),
+            .horizontal_alignment(alignment::Horizontal::Center)
+            .vertical_alignment(alignment::Vertical::Center),
     )
     .on_press(interaction)
     .width(width)
@@ -747,7 +747,7 @@ pub fn widget_with_label_and_tooltip<'a>(
         .spacing(10)
         .push(
             Tooltip::new(
-                Text::new(label_text).horizontal_alignment(HorizontalAlignment::Right),
+                Text::new(label_text).horizontal_alignment(alignment::Horizontal::Right),
                 tooltip_text,
                 Position::Top,
             )
