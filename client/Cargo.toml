@@ -37,8 +37,7 @@ rustyline = "10.0"
 colored = "2.0"
 
 # UI
-# TODO: Switch back from git version when iced 0.6 is released
-iced = { git = "https://github.com/iced-rs/iced/", rev ="28f0beee52f258af6bbaf8a0d9867863d7513c9b", default-features = false, features = ["glow", "tokio", "image", "debug"] }
+iced = { version = "0.6.0", default-features = false, features = ["wgpu", "tokio", "image", "debug"] }
 
 # Logging
 tracing = { version = "0.1.21", features = ["log"] }

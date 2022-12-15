@@ -283,6 +283,6 @@ fn settings(cmd: CmdLine) -> Settings<CmdLine> {
         exit_on_close_request: true,
         id: Some("airshipper".to_string()),
         text_multithreading: false,
-        try_opengles_first: false, // Only used with glow backend
+        try_opengles_first: true, // Only used with glow backend
     }
 }
